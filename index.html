@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOMailer</title>
+<link rel="stylesheet" href="style.css";
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1>DOMailer</h1>
+    <div class="counters">Unread: <b id="unread-count">0</b> | Starred: <b id="starred-count">0</b></div>
+  </header>
+
+  <div class="toolbar">
+    <input type="search" id="search" placeholder="Search by sender or subject..." aria-label="Search emails">
+    <div class="filters" id="filters">
+      <button data-filter="all" class="active">All</button>
+      <button data-filter="unread">Unread</button>
+      <button data-filter="starred">Starred</button>
+      <button id="open-compose" class="solid">+ Compose</button>
+    </div>
+  </div>
+
+  <div class="bulk" id="bulk-bar">
+    <span><b id="selected-count">0</b> item(s) selected</span>
+    <button class="solid" id="bulk-read">Mark as Read</button>
+    <button class="danger" id="bulk-delete">Delete Selected</button>
+  </div>
+
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr>
+          <th class="c-chk"><input type="checkbox" id="select-all" aria-label="Select all"></th>
+          <th class="c-star">★</th>
+          <th style="width:150px">Sender</th>
+          <th>Subject &amp; Content</th>
+          <th class="c-date">Date</th>
+          <th class="c-act">Action</th>
+        </tr>
+      </thead>
+      <tbody id="email-list"></tbody>
+    </table>
+  </div>
+</div>
+
+<dialog id="compose-modal">
+  <form id="compose-form">
+    <h2>Compose Email</h2>
+    <label>Sender <input type="text" id="f-sender" value="You" required></label>
+    <label>Subject <input type="text" id="f-subject" placeholder="e.g. URGENT: Server down" required></label>
+    <label>Message <textarea id="f-body" rows="4" required></textarea></label>
+    <div class="actions">
+      <button type="button" id="cancel-compose">Cancel</button>
+      <button type="submit" class="solid">Send</button>
+    </div>
+  </form>
+</dialog>
+
+
+<script src="script.js"></script>
+</body>
+</html>
